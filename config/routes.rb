@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  root 'statics#home'
+  get 'bstrap-test', to: "statics#bstrap-test", as: :bstrap_test
+  resources :listings
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

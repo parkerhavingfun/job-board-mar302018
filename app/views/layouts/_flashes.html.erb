@@ -1,0 +1,22 @@
+    <% if flash[:success] %>
+        <div class="col-md-6 col-md-offset-3 alert alert-success">
+          <%= flash[:success] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    <% elsif flash[:warning] %>
+        <div class="col-md-6 col-md-offset-3 alert alert-warning" role="alert">
+          <%= flash[:warning] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+    <% end %>
+
+<script>
+    $(".alert").on("click", function() {
+        $(this).fadeOut();
+    });
+</script>
+    

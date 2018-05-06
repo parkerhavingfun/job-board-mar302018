@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  overview: MyText
+  location: MyText
+  remote: false
+  category: MyText
+  experience_level: MyText
+
+two:
+  title: MyText
+  overview: MyText
+  location: MyText
+  remote: false
+  category: MyText
+  experience_level: MyText

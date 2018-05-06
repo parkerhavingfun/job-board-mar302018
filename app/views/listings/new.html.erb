@@ -1,0 +1,84 @@
+<container class="container-fluid">
+<div class="row new-listing-hero">
+            <div class="col-md-8 col-md-offset-2">
+                    <%= form_for @new_listing, html: { class: "floatinform" } do |f| %>
+                        <h1>Post a new listing</h1>
+                        
+                        <% if @new_listing.errors.any? %>
+                            <row>
+                                <div class="alert alert-danger col-md-6 col-md-offset-3" role="alert">
+                                      Whoops, something went wrong.
+                                      <ul>
+                                          <% @new_listing.errors.full_messages.each do |msg| %>
+                                              <li><%= msg %></li>
+                                          <% end %>
+                                      </ul>
+                                </div>
+                            </row>
+                        <% end %>
+                            
+                        
+                      <div class="row">
+                          <div class="form-group col-md-10 col-md-offset-1">
+                              <%= f.label :title, "Job title" %>
+                              <%= f.text_field :title, class: "form-control", placeholder: "ex. 'Junior web developer'"%>
+                            <small id="emailHelp" class="form-text text-muted">Hint: Choose a title that describes the such and such.</small>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="form-group col-md-10 col-md-offset-1">
+                              <%= f.label :overview, "Position overview" %>
+                              <%= f.text_area :overview, rows: "4", class: "form-control", placeholder: "Give a brief description of the importance of this roleat your organization and the scope of day to day responsibilities" %>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                              <div class="form-group col-md-5 col-md-offset-1">
+                                  <%= f.label :location, "Location" %>
+                                  <%= f.text_field :location, class: "form-control", placeholder: "ex. 'Houston, Texas USA'"%>
+                                <small id="emailHelp" class="form-text text-muted">Hint: Choose a title that describes the such and such.</small>
+                              </div>
+                              
+                              <div class="form-check col-md-3 col-md-offset-1">
+                                  <p>Is this job remote?</p>
+                                      <%= f.radio_button :remote, "not-remote", class: "form-check-input" %>
+                                      <%= f.label :remote, "Not Remote", value: "not-remote" %>
+                                      <br>
+                                      <%= f.radio_button :remote, "remote", class: "form-check-input" %>
+                                      <%= f.label :remote, "Fully Remote", value: "remote" %>
+                                      <br>
+                                      <%= f.radio_button :remote, "partially-remote", class: "form-check-input" %>
+                                      <%= f.label :remote, "Partially Remote", value: "partially-remote" %>
+                              </div>
+                      </div>
+                    <br><br>
+                      <div class="row">
+                        <div class="col-md-5 col-md-offset-1">
+                            <p>Department</p>
+                            <%= f.select :category, ([["Marketing/PR", "marketing"], ["Design", "design"],
+                                                        ["Web/Mobile Development", "dev"], ["Accounting/Finance", "finance"], 
+                                                        ["Biz dev", "bizdev"], ["Customer Support", "support"], ["Management", "management"]]), class: "form-control form-control-sm" %> 
+                          
+                        </div>
+                        <div class="col-md-5 col-md-offset-1">
+                            <p>Experience level</p>
+                                    <%= f.radio_button :experience_level, "entry-level", class: "form-check-input" %>
+                                    <%= f.label :experience_level, "Entry level", value: "entry-level" %>
+                                    <br>
+                                    <%= f.radio_button :experience_level, "2-4-years", class: "form-check-input" %>
+                                    <%= f.label :experience_level, "2-4 years", value: "2-4-years" %>
+                                    <br>
+                                    <%= f.radio_button :experience_level, "7yearsplus", class: "form-check-input" %>
+                                    <%= f.label :experience_level, "7+ years", value: "7yearsplus" %>
+                                    <br>
+                                    <%= f.radio_button :experience_level, "senior-level", class: "form-check-input" %>
+                                    <%= f.label :experience_level, "Senior level", value: "senior-level" %>
+                        </div>
+                      </div>
+                      <br><br><br>
+                      <%= f.submit "Post listing", class: "btn btn-success center-block" %>
+                    <% end %>
+            </div>  
+</div>
+</container>
